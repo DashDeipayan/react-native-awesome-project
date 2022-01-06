@@ -12,7 +12,7 @@ const InputField: FC<Props> = () => {
 	};
 
 	const onAddUser = () => {
-		setUserList([...userlist, input]);
+		input !== "" ? setUserList([...userlist, input]) : null;
 		setInput("");
 	};
 

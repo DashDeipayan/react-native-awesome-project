@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import Nav from "./src/Nav";
 import Generate from "./src/Generate";
 import ListItem from "./src/ListItem";
@@ -24,20 +24,22 @@ const App = () => {
 	return (
 		<View style={styles.mainView}>
 			<Nav nameOfApp="Hello App" />
-			<View style={styles.basicView}>
-				<Text style={styles.basicText}>Hello World 1</Text>
-			</View>
-			<View style={styles.basicView}>
-				<Text style={styles.basicText}>Hello World 2</Text>
-			</View>
-			<View>
-				<Generate onAddrandom={onAddrandom} />
-			</View>
-			<ListItem
-				items={listRandom}
-				itemRemove={(pos: number) => onItemRemove(pos)}
-			/>
-			<InputField />
+			<ScrollView style={{ width: "100%" }}>
+				<View style={styles.basicView}>
+					<Text style={styles.basicText}>Hello World 1</Text>
+				</View>
+				<View style={styles.basicView}>
+					<Text style={styles.basicText}>Hello World 2</Text>
+				</View>
+				<View>
+					<Generate onAddrandom={onAddrandom} />
+				</View>
+				<ListItem
+					items={listRandom}
+					itemRemove={(pos: number) => onItemRemove(pos)}
+				/>
+				<InputField />
+			</ScrollView>
 		</View>
 	);
 };
