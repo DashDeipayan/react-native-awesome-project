@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 import Nav from "./src/Nav";
 import Generate from "./src/Generate";
 import ListItem from "./src/ListItem";
+import InputField from "./src/InputField";
 
 const App = () => {
 	const [listRandom, setListRandom] = useState<number[]>([]);
@@ -36,6 +37,7 @@ const App = () => {
 				items={listRandom}
 				itemRemove={(pos: number) => onItemRemove(pos)}
 			/>
+			<InputField />
 		</View>
 	);
 };
