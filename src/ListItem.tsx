@@ -8,13 +8,15 @@ interface Props {
 
 const ListItem: FC<Props> = ({ items, itemRemove }) => {
 	return (
-		<Pressable>
-			<View style={styles.listitem}>
-				{items.map((item, index) => (
-					<Text key={index}>{item}</Text>
-				))}
-			</View>
-		</Pressable>
+		<View style={{ width: "100%" }}>
+			{items.map((item, index) => (
+				<Pressable key={index} onPress={() => itemRemove(index)}>
+					<View style={styles.listitem}>
+						<Text>{item}</Text>
+					</View>
+				</Pressable>
+			))}
+		</View>
 	);
 };
 
@@ -22,7 +24,8 @@ const styles = StyleSheet.create({
 	listitem: {
 		backgroundColor: "#cecece",
 		alignItems: "center",
-		margin: 10,
+		marginTop: 10,
+		padding: 10,
 		width: "100%",
 	},
 });
